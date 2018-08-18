@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/Customer"
+	xmlns:tns="http://www.example.org/Customer"
+	elementFormDefault="qualified"
+	xmlns:pref="http://www.example.org/Orders">
+
+	<import schemaLocation="Orders.xsd" namespace="http://www.example.org/Orders"></import>
+	<complexType name="Address">
+		<sequence>
+			<element name="billingStreet" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="billingCity" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="billingState" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="billingZIP" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="billingCountry" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="shippingStreet" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="shippingCity" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="shippingState" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="shippingZIP" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="shippingCountry" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Customer">
+		<sequence>
+			<element name="customerID" type="int"></element>
+			<element name="title" type="string"></element>
+			<element name="firstName" type="string"></element>
+			<element name="middleName" type="string"></element>
+			<element name="lastName" type="string"></element>
+			<element name="suffix" type="string"></element>
+			<element name="email" type="string"></element>
+			<element name="company" type="string"></element>
+			<element name="displayName" type="string"></element>
+			<element name="printOnCheckAs" type="string"></element>
+			<element name="otherDetails" type="string"></element>
+			<element name="address" type="tns:Address"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+			<element name="orders" type="pref:Orders" maxOccurs="unbounded" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<element name="Customer" type="tns:Customer"></element>
+</schema>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Orders" xmlns:tns="http://www.example.org/Orders" elementFormDefault="qualified">
+
+    <complexType name="Orders">
+    	<sequence>
+    		<element name="orderID" type="int" maxOccurs="1" minOccurs="1"></element>
+    		<element name="customerID" type="int" maxOccurs="1" minOccurs="1"></element>
+    		<element name="invoiceCreationDate" type="date" maxOccurs="1" minOccurs="0"></element>
+    		<element name="deliveryDueDate" type="date" maxOccurs="1" minOccurs="0"></element>
+    		<element name="paymentDueDate" type="date" maxOccurs="1" minOccurs="0"></element>
+    		<element name="customMessage" type="string" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+</schema>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/CustomersService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CustomersService" targetNamespace="http://www.example.org/CustomersService/" xmlns:xsd1="http://www.example.org/CustomerOperations">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/CustomersService/">
+      <xsd:element name="NewOperation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperationResponse1">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperationResponse2">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperationResponse3">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperationResponse4">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.example.org/CustomerOperations"
+    		schemaLocation="CustomerOperations.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="AddCustomerRequest">
+    <wsdl:part element="xsd1:AddCustomerRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="AddCustomerResponse">
+    <wsdl:part element="xsd1:AddCustomerResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerRequest">
+  	<wsdl:part name="parameters" element="xsd1:UpdateCustomerRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerResponse">
+  	<wsdl:part name="parameters" element="xsd1:UpdateCustomerResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerRequest">
+  	<wsdl:part name="parameters" element="xsd1:DeleteCustomerRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerResponse">
+  	<wsdl:part name="parameters" element="xsd1:DeleteCustomerResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerRequest">
+  	<wsdl:part name="parameters" element="xsd1:GetCustomerRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerResponse">
+  	<wsdl:part name="parameters" element="xsd1:GetCustomerResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomersService">
+    <wsdl:operation name="AddCustomer">
+      <wsdl:input message="tns:AddCustomerRequest"/>
+      <wsdl:output message="tns:AddCustomerResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+    	<wsdl:input message="tns:UpdateCustomerRequest"></wsdl:input>
+    	<wsdl:output message="tns:UpdateCustomerResponse"></wsdl:output>
+    </wsdl:operation>    <wsdl:operation name="DeleteCustomer">    	<wsdl:input message="tns:DeleteCustomerRequest"></wsdl:input>    	<wsdl:output message="tns:DeleteCustomerResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+    	<wsdl:input message="tns:GetCustomerRequest"></wsdl:input>
+    	<wsdl:output message="tns:GetCustomerResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomersServiceSOAP" type="tns:CustomersService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AddCustomer">
+      <soap:operation soapAction="http://www.example.org/CustomersService/AddCustomer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+    <soap:operation soapAction="http://www.example.org/CustomersService/UpdateCustomer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+    <soap:operation soapAction="http://www.example.org/CustomersService/DeleteCustomer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+    <soap:operation soapAction="http://www.example.org/CustomersService/GetCustomer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomersService">
+    <wsdl:port binding="tns:CustomersServiceSOAP" name="CustomersServiceSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

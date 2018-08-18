@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/CustomerOperations"
+	xmlns:tns="http://www.example.org/CustomerOperations"
+	elementFormDefault="qualified" xmlns:pref="http://www.example.org/Customer">
+
+	<import schemaLocation="Customer.xsd" namespace="http://www.example.org/Customer"></import>
+	<complexType name="AddCustomerRequest">
+		<sequence>
+			<element name="customer" type="pref:Customer"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="AddCustomerResponse">
+		<sequence>
+			<element name="status">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="CREATED"></enumeration>
+						<enumeration value="BAD_REQUEST"></enumeration>
+						<enumeration value="NOT_FOUND"></enumeration>
+						<enumeration value="ACCEPTED"></enumeration>
+						<enumeration value="DELETED"></enumeration>
+						<enumeration value="UPDATED"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="UpdateCustomerRequest">
+		<sequence>
+			<element name="customer" type="pref:Customer"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="UpdateCustomerResponse">
+		<sequence>
+			<element name="status">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="NOT_FOUND"></enumeration>
+						<enumeration value="BAD_REQUEST"></enumeration>
+						<enumeration value="ACCEPTED"></enumeration>
+						<enumeration value="UPDATED"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="GetCustomerRequest">
+		<sequence>
+			<element name="customerID" type="int"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="GetCustomerResponse">
+		<sequence>
+			<element name="status">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="NOT_FOUND"></enumeration>
+						<enumeration value="ACCEPTED"></enumeration>
+						<enumeration value="BAD_REQUEST"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="DeleteCustomerRequest">
+		<sequence>
+			<element name="customerID" type="int"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="DeleteCustomerResponse">
+		<sequence>
+			<element name="status">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="NOT_FOUND"></enumeration>
+						<enumeration value="DELETED"></enumeration>
+						<enumeration value="BAD_REQUEST"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<element name="AddCustomerRequest" type="tns:AddCustomerRequest"></element>
+
+	<element name="AddCustomerResponse"
+		type="tns:AddCustomerResponse">
+	</element>
+
+	<element name="DeleteCustomerRequest"
+		type="tns:DeleteCustomerRequest">
+	</element>
+
+	<element name="DeleteCustomerResponse"
+		type="tns:DeleteCustomerResponse">
+	</element>
+
+	<element name="GetCustomerRequest" type="tns:GetCustomerRequest"></element>
+
+
+	<element name="GetCustomerResponse"
+		type="tns:GetCustomerResponse">
+	</element>
+
+	<element name="UpdateCustomerRequest"
+		type="tns:UpdateCustomerRequest">
+	</element>
+
+	<element name="UpdateCustomerResponse"
+		type="tns:UpdateCustomerResponse">
+	</element>
+</schema>
